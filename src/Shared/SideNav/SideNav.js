@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+
 const SideNav = () => {
   const [categories, setCategories] = useState([]);
 
@@ -18,6 +20,13 @@ const SideNav = () => {
             <Link to={`/category/${category.id}`}>{category.name}</Link>
           </p>
         ))}
+        <div>
+          <Button variant="primary" className="mb-3">
+            Sign in With Google
+          </Button>
+          <br />
+          <Button variant="primary">Sign in with GitHub</Button>
+        </div>
       </div>
     </div>
   );

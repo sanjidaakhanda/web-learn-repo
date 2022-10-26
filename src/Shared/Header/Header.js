@@ -11,11 +11,11 @@ const Header = () => {
         collapseOnSelect
         className="mb-4"
         expand="lg"
-        bg="dark"
+        bg="secondary"
         variant="dark"
       >
         <Container>
-          <Navbar.Brand className="fs-2 text-decoration-none">
+          <Navbar.Brand className="fs-2">
             <Link to={"/home"}>
               <FaLaptopHouse></FaLaptopHouse> Web Learn
             </Link>
