@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { FaAngleDoubleRight } from "react-icons/fa";
 const CourseCard = ({ course }) => {
   const { name, image, details, id } = course;
   return (
@@ -20,7 +21,9 @@ const CourseCard = ({ course }) => {
               <p>{details}</p>
             )}
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="primary">
+            Enroll Now <FaAngleDoubleRight></FaAngleDoubleRight>
+          </Button>
         </Card.Body>
       </Card>
     </div>
