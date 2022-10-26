@@ -2,7 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
+import { Link } from "react-router-dom";
+import { FaLaptopHouse } from "react-icons/fa";
 const Header = () => {
   return (
     <div>
@@ -10,15 +11,18 @@ const Header = () => {
         collapseOnSelect
         className="mb-4"
         expand="lg"
-        bg="primary"
-        variant="light"
+        bg="dark"
+        variant="dark"
       >
         <Container>
-          <Navbar.Brand href="#home">Web Learn</Navbar.Brand>
+          <Navbar.Brand className="fs-2 text-decoration-none">
+            <Link to={"/home"}>
+              <FaLaptopHouse></FaLaptopHouse> Web Learn
+            </Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Home</Nav.Link>
               <Nav.Link href="#pricing">Login</Nav.Link>
               <Nav.Link href="#pricing">Register</Nav.Link>
             </Nav>
