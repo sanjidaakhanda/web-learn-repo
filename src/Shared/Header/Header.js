@@ -2,9 +2,13 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
-import { FaLaptopHouse } from "react-icons/fa";
+import { FaLaptopHouse, FaUser } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 const Header = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <Navbar
@@ -30,9 +34,19 @@ const Header = () => {
               <Nav.Link href="#pricing">Register</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link href="#deets">
+                {user?.photoURL2 ? (
+                  <Image
+                    style={{ height: "40px" }}
+                    roundedCircle
+                    src={user.photoURL}
+                  ></Image>
+                ) : (
+                  <FaUser></FaUser>
+                )}
+              </Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
-                Dank memes
+                {user?.displayName}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
