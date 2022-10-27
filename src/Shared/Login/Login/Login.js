@@ -1,14 +1,14 @@
 import React from "react";
-import { useState } from "react";
+
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
-  const [error, setError] = useState("");
   const { signIn, providerLogIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
@@ -30,14 +30,12 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setError("");
-        form.reset();
-      })
 
-      .catch((error) => {
-        console.error(error);
-        setError(error.message);
-      });
+        form.reset();
+        navigate("/home");
+      })
+      .catch((error) => console.error(error));
+
     console.log(email, password);
   };
 
@@ -64,10 +62,11 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Log in
-        </Button>
-        <Form.Text className="text-danger">{error}</Form.Text>
+        <Link to={"/home"}>
+          <Button variant="primary" type="submit">
+            Log in
+          </Button>
+        </Link>
       </Form>
       <div className="text-center">
         <p>

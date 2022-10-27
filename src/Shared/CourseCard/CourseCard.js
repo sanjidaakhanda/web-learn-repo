@@ -8,9 +8,9 @@ const CourseCard = ({ course }) => {
   return (
     <div>
       <div>
-        <h1 className="text-primary">{name}</h1>
+        <h1 className="text-secondary text-center">{name}</h1>
       </div>
-      <Card style={{ width: "75%" }} className="mb-4">
+      <Card className="mb-4">
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>

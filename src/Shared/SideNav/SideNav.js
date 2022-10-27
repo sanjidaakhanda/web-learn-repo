@@ -12,8 +12,8 @@ const SideNav = () => {
   }, []);
 
   return (
-    <div>
-      <h3>All Courses {categories.length} </h3>
+    <div className="text-center" style={{ height: "400px" }}>
+      <h3 className="text-primary">All Courses</h3>
       <div>
         {categories.map((category) => (
           <p key={category.id}>

@@ -10,7 +10,7 @@ const Courses = () => {
   return (
     <div>
       <h1> {course.name}</h1>
-      <Card style={{ width: "75%" }}>
+      <Card>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
