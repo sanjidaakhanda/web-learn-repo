@@ -3,6 +3,7 @@ import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const handleSubmit = (event) => {
@@ -55,10 +56,13 @@ const Register = () => {
           />
         </Form.Group>
 
+        <Form.Text>
+          <Link to="/login">already have an account</Link>
+        </Form.Text>
+        <br />
         <Button variant="primary" type="submit">
           Register
         </Button>
-        <Form.Text></Form.Text>
       </Form>
     </div>
   );

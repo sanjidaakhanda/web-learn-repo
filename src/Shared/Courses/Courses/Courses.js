@@ -3,9 +3,10 @@ import { useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FaHandPointRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Courses = () => {
   const course = useLoaderData();
-  const { name, image, details } = course;
+  const { name, image, details, id } = course;
   return (
     <div>
       <h1> {course.name}</h1>
@@ -14,9 +15,11 @@ const Courses = () => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{details}</Card.Text>
-          <Button variant="primary">
-            Get premium access <FaHandPointRight></FaHandPointRight>
-          </Button>
+          <Link to={`/checkOut/${id}}`}>
+            <Button variant="primary">
+              Get premium access <FaHandPointRight></FaHandPointRight>
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
