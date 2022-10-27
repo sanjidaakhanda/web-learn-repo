@@ -3,12 +3,11 @@ import React from "react";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const Login = () => {
   const { signIn, providerLogIn } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
@@ -30,9 +29,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-
         form.reset();
-        navigate("/home");
       })
       .catch((error) => console.error(error));
 
@@ -61,23 +58,27 @@ const Login = () => {
             required
           />
         </Form.Group>
-
         <Link to={"/home"}>
           <Button variant="primary" type="submit">
             Log in
           </Button>
         </Link>
+
+        <div className="text-center">
+          <p>
+            <Link to="/register">Please Register</Link>
+          </p>
+          <Button
+            onClick={handleGoogleSignIn}
+            variant="primary"
+            className="m-3"
+          >
+            Sign in With Google
+          </Button>
+          <br />
+          <Button variant="primary">Sign in with GitHub</Button>
+        </div>
       </Form>
-      <div className="text-center">
-        <p>
-          <Link to="/register">Please Register</Link>
-        </p>
-        <Button onClick={handleGoogleSignIn} variant="primary" className="m-3">
-          Sign in With Google
-        </Button>
-        <br />
-        <Button variant="primary">Sign in with GitHub</Button>
-      </div>
     </div>
   );
 };
