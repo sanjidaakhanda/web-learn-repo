@@ -7,6 +7,9 @@ const CourseCard = ({ course }) => {
   const { name, image, details, id } = course;
   return (
     <div>
+      <div>
+        <h1 className="text-primary">{name}</h1>
+      </div>
       <Card style={{ width: "75%" }} className="mb-4">
         <Card.Img variant="top" src={image} />
         <Card.Body>

@@ -37,8 +37,12 @@ const Header = () => {
               <Nav.Link>
                 <Link to={"/home"}>Courses</Link>
               </Nav.Link>
-              <Nav.Link href="#pricing">Login</Nav.Link>
-              <Nav.Link href="#pricing">Register</Nav.Link>
+              <Nav.Link>
+                <Link to={"/blog"}> Blog</Link>
+              </Nav.Link>
+              <Nav.Link href="#pricing" className="text-primary">
+                FAQ
+              </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="#deets">
