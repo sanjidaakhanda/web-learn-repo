@@ -7,8 +7,15 @@ import { Link } from "react-router-dom";
 import { FaLaptopHouse, FaUser } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import { Button } from "react-bootstrap";
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <Navbar
@@ -45,8 +52,22 @@ const Header = () => {
                   <FaUser></FaUser>
                 )}
               </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                {user?.displayName}
+              <Nav.Link>
+                {user?.uid ? (
+                  <>
+                    <span> {user?.displayName}</span>
+                    <Button className="mx-2" onClick={handleLogOut}>
+                      Log Out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login" className="mx-4">
+                      Login
+                    </Link>
+                    <Link to="/register">Register</Link>
+                  </>
+                )}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
