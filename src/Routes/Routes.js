@@ -18,19 +18,19 @@ export const routes = createBrowserRouter([
       {
         path: "/home",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://web-learn-server.vercel.app/courses"),
       },
       {
         path: "/courses/:id",
         element: <Courses></Courses>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://web-learn-server.vercel.app/courses/${params.id}`),
       },
       {
         path: "/category/:id",
         element: <Category></Category>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://web-learn-server.vercel.app/category/${params.id}`),
       },
       {
         path: "/login",
@@ -45,7 +45,7 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/checkOut/${params.id}`),
+          fetch(`https://web-learn-server.vercel.app/checkOut/${params.id}`),
       },
 
       { path: "/blog", element: <Blog></Blog> },

@@ -68,11 +68,11 @@ const Register = () => {
           <Link to="/login">already have an account</Link>
         </Form.Text>
         <br />
-        <Link to={"/login"}>
-          <Button variant="primary" type="submit">
-            Register
-          </Button>
-        </Link>
+
+        <Button variant="primary" type="submit">
+          Register
+        </Button>
+
         <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
     </div>

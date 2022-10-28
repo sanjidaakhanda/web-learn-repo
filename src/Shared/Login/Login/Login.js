@@ -63,7 +63,6 @@ const Login = () => {
             Log in
           </Button>
         </Link>
-
         <div className="text-center">
           <p>
             <Link to="/register">Please Register</Link>
